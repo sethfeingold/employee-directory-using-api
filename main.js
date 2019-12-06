@@ -5,4 +5,4 @@ function fetch12Employees(url) {
         .catch(err => console.error(`We're sorry, there was an error fetching your data: ${err.name}`));
 }
 
-fetch12Employees('https://randomuser.me/api/?results=12');
+fetch12Employees('https://randomuser.me/api/?results=12&nat=GB,US,AU,FR,CA')
