@@ -20,14 +20,18 @@ fetchEmployees('https://randomuser.me/api/?results=12&nat=GB,US,AU,FR,CA');
 function generateEmployeeCards (data) {
     console.log(data);
 
-    data.forEach( person => console.log(person.name))
+    data.forEach( person => console.log(person.name));
 
     data.forEach( person => employeeGrid.innerHTML += `
     <div class="employee-card">
-        <img class="employee-thumbnail" src="${person.picture.thumbnail}">
-        <h3 class="employee-name">${person.name.first} ${person.name.last}</h3>
-        <p class="employee-email">${person.email}</p>
-        <p class="employee-city">${person.location.city}</p>
+        <div>
+            <img class="employee-thumbnail" src="${person.picture.thumbnail}">
+        </div>
+        <div>
+            <h3 class="employee-name">${person.name.first} ${person.name.last}</h3>
+            <p class="employee-email">${person.email}</p>
+            <p class="employee-city">${person.location.city}</p>
+        </div>
     </div>
-    `)
+    `);
 }
