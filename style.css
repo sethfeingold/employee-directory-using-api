@@ -47,3 +47,7 @@ h1 {
     font-size: 0.75em;
     color: rgb(140, 140, 140);
 }
+
+.hidden {
+    display: none;
+}
