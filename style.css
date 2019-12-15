@@ -45,9 +45,84 @@ h1 {
 
 .employee-email, .employee-city {
     font-size: 0.75em;
-    color: rgb(140, 140, 140);
+    color: rgb(160, 160, 160);
 }
 
-.hidden {
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
     display: none;
+    margin: 0 auto;
+}
+
+.modal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 320px;
+    height: 420px;
+    margin: auto;
+    padding-top: 60px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    transition: .6s ease-out;     
+}
+
+.modal-info-container {
+    text-align: center;
+}
+
+.modal-info-container hr {
+    width: 90%;
+    border: solid 0.5px rgb(160, 160, 160);
+}
+
+.modal-info-container h3 {
+    color: rgb(100, 100, 100);
+}
+
+.modal-info-container p {
+    color: rgb(160, 160, 160);
+    font-size: 0.8em;
+}
+
+.modal-img {
+    border-radius: 50%;
+}
+
+.modal-close-x {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: rgb(199, 117, 224);
+    font-size: 1.5rem;
+}
+
+.modal-close-x:hover {
+    cursor: pointer;
+}
+
+#next-btn, #prev-btn {
+    color: rgb(199, 117, 224);
+}
+
+#next-btn:hover, #prev-btn:hover {
+    cursor: pointer;
+}
+
+#next-btn {
+    float: right;
+    padding-right: 15px;
+}
+
+#prev-btn {
+    float: left;
+    padding-left: 15px;
 }
