@@ -101,20 +101,22 @@ h1 {
     position: absolute;
     top: 10px;
     right: 20px;
-    color: rgb(195, 93, 226);
+    color: rgb(100, 100, 100);
     font-size: 1.5rem;
 }
 
 .modal-close-x:hover {
     cursor: pointer;
+    color: rgb(195, 93, 226);
 }
 
 #next-btn, #prev-btn {
-    color: rgb(195, 93, 226);
+    color: rgb(100, 100, 100);
 }
 
 #next-btn:hover, #prev-btn:hover {
     cursor: pointer;
+    color: rgb(195, 93, 226);
 }
 
 #next-btn {
