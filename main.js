@@ -1,17 +1,16 @@
 // URL that calls the random user api and fetches 12 random employees from US, UK, Australia, France, and Canada
-
 const twelveEmployeesURL = 'https://randomuser.me/api/?results=12&nat=GB,US,AU,FR,CA';
 
-// Employee grid section (for inserting employee data)
 
+// Employee grid section (for inserting employee data)
 const employeeGrid = document.querySelector('#employee-grid');
 
-// Variable to store info for all 12 employees
 
+// Variable to store info for all 12 employees
 let employees = {};
 
-// Function that fetches employees, url must point to randomuser API
 
+// Function that fetches employees, url must point to randomuser API
 function fetchEmployees(url) {
     return fetch(url)
         .then(data => data.json())
@@ -25,8 +24,8 @@ function fetchEmployees(url) {
 
 fetchEmployees('https://randomuser.me/api/?results=12&nat=US'); // Call fetchEmployees on page load
 
-// Function that generates employee card
 
+// Function that generates employee card
 function generateEmployeeCards (data) {
     data.forEach( person => employeeGrid.innerHTML += `
     <div class="employee-card">
@@ -42,7 +41,6 @@ function generateEmployeeCards (data) {
     `);
 
     // Setting up event listener for each employee card, so that modal opens when clicked
-
     document.querySelectorAll('.employee-card').forEach((card, index) => {
         card.addEventListener('click', () => {
           // code to call modal function will go here
@@ -51,8 +49,8 @@ function generateEmployeeCards (data) {
     });
 }
 
-// Function to generate modal of clicked employee
 
+// Function to generate modal of clicked employee
 const generateModal = (employees, employee, index) => {
     const modalContainer = document.querySelector('.modal-container');
     const dob = new Date(Date.parse(employee.dob.date)).toLocaleDateString(navigator.language); // Formats date depending on users locale.
@@ -74,16 +72,16 @@ const generateModal = (employees, employee, index) => {
 
     modalContainer.style.display = 'block';
 
-    // Closes modal when 'x' is clicked
 
+    // Closes modal when 'x' is clicked
     const modalX = document.querySelector('.modal-close-x');
 
     modalX.addEventListener('click', () => {
         modalContainer.style.display = 'none';
     })
 
-    // Changes to previous or next employee when 'prev' or 'next' button is clicked
 
+    // Changes to previous or next employee when 'prev' or 'next' button is clicked
     const nextBtn = modalContainer.querySelector('#next-btn');
     const prevBtn = modalContainer.querySelector('#prev-btn');
 
@@ -95,8 +93,8 @@ const generateModal = (employees, employee, index) => {
         generateModal(employees, employees[index - 1], index - 1);
     });
 
+    
     // 'Prev' button disappears when first employee is selected, 'Next' button disappears when last employee is selected.
-
     if (index == 0) {
         prevBtn.innerHTML = '';
         document.querySelector('.city').style.paddingLeft = '43px';
@@ -105,3 +103,21 @@ const generateModal = (employees, employee, index) => {
         document.querySelector('.city').style.paddingRight = '43px';
     }
 };
+
+// Search box feature
+
+const search = document.getElementById('searchbar');
+
+search.addEventListener('keyup', () => {
+    const input = search.value.toUpperCase();
+    let cards = employeeGrid.querySelectorAll('.employee-card');
+
+    cards.forEach( (person) => {
+        const name = person.childNodes[3].childNodes[1].innerText.toUpperCase();
+        if (!name.includes(input)) {
+            person.classList.add('hidden');
+        } else {
+            person.classList.remove('hidden');
+        }
+    });
+})

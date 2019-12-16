@@ -128,3 +128,23 @@ h1 {
     float: left;
     padding-left: 15px;
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+#searchbar {
+    -webkit-appearance:none;
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(100, 100, 100);
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
+}
